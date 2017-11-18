@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Assets/PlayerCharacter/PlayerBase.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PlayerCharacter/PlayerCam.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 1, 1 )
+
+[node name="PlayerBase" type="Node"]
+
+script/script = ExtResource( 1 )
+moveSpeed = 7.0
+JumpHeight = 15.0
+MouseSensitivity = 2.0
+parent_path = NodePath("../ProtoBox3D/StaticBody")
+rigidbody_path = NodePath("Player")
+timer_path = NodePath("Player/Timer")
+ray_path = NodePath("Player/RayCast")
+ray_path1 = NodePath("Player/RayCast1")
+ray_path2 = NodePath("Player/RayCast2")
+ray_path3 = NodePath("Player/RayCast3")
+ray_path4 = NodePath("Player/RayCast4")
+isCollided = true
+
+[node name="Player" type="RigidBody" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3865, -3.72703 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421337, 0.015138 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 0.71
+bounce = 0.0
+gravity_scale = 2.5
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock = 0
+velocity/linear = Vector3( 0, 0, 0 )
+velocity/angular = Vector3( 0, 0, 0 )
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="TestCube" type="TestCube" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.413474, 0.043702 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="TestCube1" type="TestCube" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.602019, 0, 0, 0, 0.602019, 0, 0, 0, 0.602019, 0.0160036, 2.09879, -1.01939 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421337, 0.015138 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="RayCast" type="RayCast" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0.024608, -0.192716, 0 )
+enabled = true
+cast_to = Vector3( 0, -1, 0 )
+layer_mask = 1
+type_mask = 31
+
+[node name="RayCast1" type="RayCast" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.998814, -0.178134, -0.954957 )
+enabled = false
+cast_to = Vector3( 0, -1, 0 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast2" type="RayCast" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99304, -0.178134, 1.03583 )
+enabled = false
+cast_to = Vector3( 0, -1, 0 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast3" type="RayCast" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9937, -0.178134, 1.03843 )
+enabled = false
+cast_to = Vector3( 0, -1, 0 )
+layer_mask = 1
+type_mask = 15
+
+[node name="RayCast4" type="RayCast" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.999619, -0.178134, -0.95577 )
+enabled = false
+cast_to = Vector3( 0, -1, 0 )
+layer_mask = 1
+type_mask = 15
+
+[node name="Yaw" type="Spatial" parent="Player"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0860825 )
+
+[node name="Camera" type="Camera" parent="Player/Yaw"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 0.952956, 0.303108, 0, -0.303108, 0.952956, 0, 4.83904, 11.4574 )
+projection = 0
+fov = 60.0
+near = 0.1
+far = 100.0
+keep_aspect = 1
+current = false
+visible_layers = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+script/script = ExtResource( 2 )
+MouseSensitivity = 0.015
+
+
